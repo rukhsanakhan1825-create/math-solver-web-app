@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container py-5">
+<div class="text-center mb-4">
+<h1 style="font-size:2.5rem;font-weight:700;color:#fff;">Math Problem Solver</h1>
+<p style="color:#888;">Solve arithmetic, algebra, calculus and statistics with step-by-step solutions.</p>
+</div>
+<div style="background:#141720;border:1px solid #222;border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;">
+<div style="display:flex;gap:12px;">
+<input type="text" id="problemInput" style="flex:1;background:#1e2330;border:1px solid #333;border-radius:8px;color:#fff;font-size:1rem;padding:0.75rem 1rem;" placeholder="e.g. x^2 - 5x + 6 = 0"/>
+<button id="solveBtn" style="background:#6c63ff;border:none;border-radius:8px;color:white;font-size:1rem;font-weight:600;padding:0.75rem 2rem;cursor:pointer;">Solve</button>
+</div>
+<div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+<span style="color:#888;font-size:0.8rem;">Try:</span>
+<button class="chip" onclick="tryExample(this)" data-expr="25 * 4 + 100 / 5">25x4+100/5</button>
+<button class="chip" onclick="tryExample(this)" data-expr="x^2 - 5x + 6 = 0">x^2-5x+6=0</button>
+<button class="chip" onclick="tryExample(this)" data-expr="factor x^2 - 9">factor x^2-9</button>
+<button class="chip" onclick="tryExample(this)" data-expr="derivative of x^3 + 2x">d/dx x^3+2x</button>
+<button class="chip" onclick="tryExample(this)" data-expr="integrate x^2 dx">integral x^2</button>
+<button class="chip" onclick="tryExample(this)" data-expr="mean 4 7 13 2 1">stats mean</button>
+</div>
+</div>
+<div id="errorArea" style="display:none;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:1rem;color:#fca5a5;margin-bottom:1rem;"></div>
+<div id="resultArea" style="display:none;">
+<div style="background:#141720;border:1px solid #222;border-radius:14px;padding:1.5rem;margin-bottom:1rem;">
+<div style="color:#888;font-size:0.85rem;margin-bottom:0.5rem;">Result</div>
+<div id="resultLatex" style="font-size:1.3rem;text-align:center;padding:1rem 0;color:#fff;"></div>
+</div>
+<div style="background:#141720;border:1px solid #222;border-radius:14px;overflow:hidden;margin-bottom:1rem;">
+<div style="padding:1rem 1.5rem;border-bottom:1px solid #222;font-weight:600;display:flex;justify-content:space-between;">
+<span>Step-by-step solution</span>
+<button id="toggleSteps" onclick="toggleSteps()" style="background:none;border:none;color:#a78bfa;cursor:pointer;">Hide steps</button>
+</div>
+<div id="stepsList" style="padding:1rem 1.5rem;"></div>
+</div>
+<div id="graphCard" style="display:none;background:#141720;border:1px solid #222;border-radius:14px;overflow:hidden;margin-bottom:1rem;">
+<div style="padding:1rem 1.5rem;border-bottom:1px solid #222;font-weight:600;">Graph</div>
+<div style="padding:1.5rem;height:300px;"><canvas id="mathChart"></canvas></div>
+</div>
+</div>
+</div>
+<style>
+.chip{background:#1e2330;border:1px solid #333;color:#888;font-size:0.78rem;padding:4px 12px;border-radius:6px;cursor:pointer;}
+.chip:hover{border-color:#6c63ff;color:#a78bfa;}
+</style>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='solver.js') }}"></script>{% endblock %}

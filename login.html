@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="display:flex;align-items:center;justify-content:center;min-height:80vh;">
+<div style="background:#141720;border:1px solid #222;border-radius:14px;padding:2.5rem 2rem;width:100%;max-width:420px;">
+<h2 style="text-align:center;font-weight:700;margin-bottom:1.5rem;">Login</h2>
+<form method="POST">
+<div style="margin-bottom:1rem;">
+<label style="color:#888;font-size:0.85rem;">Username</label>
+<input name="username" type="text" class="form-control" style="background:#1e2330;border:1px solid #333;color:#fff;" required/>
+</div>
+<div style="margin-bottom:1rem;">
+<label style="color:#888;font-size:0.85rem;">Password</label>
+<input name="password" type="password" class="form-control" style="background:#1e2330;border:1px solid #333;color:#fff;" required/>
+</div>
+<button type="submit" style="background:#6c63ff;border:none;color:white;width:100%;padding:0.65rem;border-radius:8px;font-weight:600;margin-top:0.5rem;">Sign In</button>
+</form>
+<p style="text-align:center;color:#888;font-size:0.85rem;margin-top:1rem;">No account? <a href="/register" style="color:#a78bfa;">Register</a></p>
+</div>
+</div>
+{% endblock %}
