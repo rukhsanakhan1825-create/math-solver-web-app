@@ -1,6 +1,5 @@
 flask
 flask-session
-cs50
 sympy
 numpy
 werkzeug
