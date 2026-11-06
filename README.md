@@ -37,7 +37,7 @@ MathSolve/
 ## How to Run
 
 ```bash
-git clone https://github.com/Rukhsanabibi/MathSolve.git
+git clone https://github.com/rukhsanakhan1825-create/MathSolve.git
 cd MathSolve
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
